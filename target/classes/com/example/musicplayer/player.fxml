@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1100.0" style="-fx-background-color: #181818;" styleClass="top-menu" stylesheets="@../../../style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicplayer.HelloController">
+   <children>
+      <AnchorPane id="left-menu" layoutY="35.0" prefHeight="515.0" prefWidth="236.0" style="-fx-background-color: #181818;" styleClass="left-menu">
+         <children>
+            <ButtonBar layoutX="-90.0" layoutY="137.0" prefHeight="0.0" prefWidth="205.0" />
+            <Button id="button" alignment="CENTER" layoutX="22.0" layoutY="463.0" mnemonicParsing="false" onContextMenuRequested="#addPlaylist" onMouseClicked="#addPlaylist" prefHeight="31.0" prefWidth="98.0" stylesheets="@../../../style.css" text="add playlist">
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+               <font>
+                  <Font name="Wingdings 3" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="29.0" layoutY="79.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="180.0" styleClass="button" stylesheets="@../../../style.css" text="Video">
+               <graphic>
+                  <FontAwesomeIconView text="" />
+               </graphic>
+               <font>
+                  <Font name="Wingdings 2" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="29.0" layoutY="29.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="180.0" stylesheets="@../../../style.css" text="Music ">
+               <graphic>
+                  <FontAwesomeIconView text="" />
+               </graphic>
+               <font>
+                  <Font name="Wingdings 3" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="145.0" layoutY="463.0" mnemonicParsing="false" scaleX="0.8" scaleY="0.8" scaleZ="0.8">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLUS" size="25" />
+               </graphic>
+               <font>
+                  <Font name="Wingdings 3" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="191.0" layoutY="463.0" mnemonicParsing="false" scaleX="0.8" scaleY="0.8" scaleZ="0.8">
+               <graphic>
+                  <FontAwesomeIconView glyphName="TRASH" size="25" />
+               </graphic>
+               <font>
+                  <Font name="Wingdings 3" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="133.0" layoutY="421.0" mnemonicParsing="false" onContextMenuRequested="#importPlaylist" onMouseClicked="#importPlaylist" prefHeight="26.0" prefWidth="112.0" text="Import playlist">
+               <graphic>
+                  <FontAwesomeIconView text="" />
+               </graphic>
+            </Button>
+            <Button layoutX="15.0" layoutY="421.0" mnemonicParsing="false" onContextMenuRequested="#update" onMouseClicked="#update" prefHeight="26.0" prefWidth="114.0" text="Update list">
+               <graphic>
+                  <FontAwesomeIconView text="" />
+               </graphic>
+            </Button>
+         </children>
+         <stylesheets>
+            <URL value="@../../../style.css" />
+            <URL value="@../../../style.css" />
+         </stylesheets>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="52.0" layoutY="9.0" text="BDC-Player" textFill="#ff7e00">
+         <font>
+            <Font name="Verdana Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Pane layoutX="236.0" layoutY="35.0" prefHeight="34.0" prefWidth="864.0" style="-fx-background-color: #181818;">
+         <children>
+            <TextField fx:id="textAreaSearch" layoutX="3.0" layoutY="4.0" prefHeight="26.0" prefWidth="371.0" promptText="Search" />
+            <ChoiceBox fx:id="myChoiceBox" layoutX="706.0" layoutY="5.0" prefWidth="150.0" />
+            <FontAwesomeIconView glyphName="SEARCH" layoutX="356.0" layoutY="22.0" onContextMenuRequested="#search" onMouseClicked="#search" wrappingWidth="12.07464599609375" />
+            <Label layoutX="647.0" layoutY="8.0" prefHeight="18.0" prefWidth="49.0" text="filter by:">
+               <font>
+                  <Font name="Wingdings 2" size="14.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="SEARCH" layoutX="628.0" layoutY="23.0" size="14" text="" wrappingWidth="12.07464599609375" />
+         </children>
+      </Pane>
+      <Pane layoutX="237.0" layoutY="74.0" prefHeight="417.0" prefWidth="863.0" style="-fx-background-color: #000;">
+         <children>
+            <TreeView fx:id="treeView" layoutX="-1.0" layoutY="-6.0" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefHeight="423.0" prefWidth="864.0" />
+         </children>
+      </Pane>
+
+      <Pane layoutX="237.0" layoutY="492.0" prefHeight="63.0" prefWidth="864.0" style="-fx-background-color: FF7E00;">
+         <children>
+            <Label alignment="CENTER" layoutX="208.0" layoutY="13.0" prefHeight="15.0" prefWidth="471.0" text="Now playing:" textAlignment="CENTER" textFill="#181818">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="PLAY" layoutX="55.0" layoutY="53.0" onMouseClicked="#playPause" size="26" wrappingWidth="14.585784912109375" />
+            <FontAwesomeIconView glyphName="ARROW_LEFT" layoutX="14.0" layoutY="53.0" size="25" text="" />
+            <FontAwesomeIconView glyphName="ARROW_RIGHT" layoutX="87.0" layoutY="53.0" size="25" text="" />
+            <Label fx:id="songLabel" alignment="CENTER" layoutX="207.0" layoutY="21.0" prefHeight="25.0" prefWidth="471.0" text="Stephen Sanchez - Until I Found You" textAlignment="CENTER" textFill="#181818" translateY="4.5">
+               <font>
+                  <Font name="Wingdings 2" size="15.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="" layoutX="679.0" layoutY="53.0" selectionFill="#8d6c6c" size="25" text="" />
+            <FontAwesomeIconView glyphName="REPEAT" layoutX="139.0" layoutY="53.0" size="25" text="" />
+            <FontAwesomeIconView glyphName="REPEAT" layoutX="175.0" layoutY="52.0" onMouseClicked="#cycleTrack" size="25" text="" />
+            <Slider fx:id="volumeSlider" layoutX="724.0" layoutY="32.0" max="100" scaleX="0.9" scaleY="0.9" scaleZ="0.9" styleClass="volume" stylesheets="@../../../style.css" value="50.0" />
+            <ProgressBar fx:id="songProgressBar" layoutX="1.0" prefHeight="12.0" prefWidth="865.5" progress="0.0" scaleY="0.7" stylesheets="@../../../style.css" translateX="-3.0" translateY="-2.0" />
+            <Label fx:id="labelCurrentTime" layoutX="12.0" layoutY="11.0" text="00:00" textFill="#181818" />
+            <Label fx:id="labelTotalTime" layoutX="822.0" layoutY="11.0" text="00:00" textFill="#181818" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
